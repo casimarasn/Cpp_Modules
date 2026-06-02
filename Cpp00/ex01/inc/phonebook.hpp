@@ -1,12 +1,15 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   phonebook.hpp                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: msedeno- <msedeno-@student.42malaga.com>   +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/20 19:35:42 by msedeno-          #+#    #+#             */
-/*   Updated: 2026/05/20 19:35:43 by msedeno-         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#ifndef PHONEBOOK_HPP
+# define PHONEBOOK_HPP
+
+# include "contact.hpp"
+
+class	PhoneBook
+{
+	private:
+		Contact	_contacts[8];
+		
+	public:
+}
+
+#endif
 
