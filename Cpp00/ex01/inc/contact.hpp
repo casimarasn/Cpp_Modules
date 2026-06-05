@@ -16,17 +16,21 @@ class Contact
 	public:
 		Contact();
 		~Contact();
-		void	setFirstName(std::string str);
-		void	setLastName(std::string str);
-		void	setNickName(std::string str);
-		void	setPhoneNumber(std::string str);
-		void	setDarkestSecret(std::string str);
+		void	setFirstName(const std::string& str);
+		void	setLastName(const std::string& str);
+		void	setNickName(const std::string& str);
+		void	setPhoneNumber(const std::string& str);
+		void	setDarkestSecret(const std::string& str);
 
 		std::string	getFirstName(void)const;
 		std::string	getLastName(void)const;
 		std::string	getNickName(void)const;
 		std::string	getPhoneNumber(void)const;
 		std::string	getDarkestSecret(void)const;
+
+		void	printRow(int index)const;
+		void	printDetails(void)const;
+
 };
 
 #endif
