@@ -61,3 +61,4 @@ std::string	Contact::getDarkestSecret(void)const
 {
 	return(_darkestSecret);
 }
+
