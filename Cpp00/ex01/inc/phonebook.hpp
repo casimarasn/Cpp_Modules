@@ -16,8 +16,8 @@ class	PhoneBook
 		~PhoneBook();
 		void	searchContact(void);
 		void	addContact(void);
-
-
+		void	printTable(int index)const;
+		void	printDetails(void)const;
 };
 
 #endif

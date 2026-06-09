@@ -28,8 +28,7 @@ class Contact
 		std::string	getPhoneNumber(void)const;
 		std::string	getDarkestSecret(void)const;
 
-		void	printRow(int index)const;
-		void	printDetails(void)const;
+		
 
 };
 
