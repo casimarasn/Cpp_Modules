@@ -46,47 +46,73 @@ void	PhoneBook::printTable()const
 
 void	PhoneBook::addContact()
 {
-	std::string	first;
-	std::string	last;
-	std::string	nick;
-	std::string	phone;
-	std::string	secret;
+	std::string	input;
 
 	do {
 		std::cout	<< "Cuál es tu Nombre?" << std::endl;
-		std::getline(std::cin, first);
-		if (first.empty())
+		std::getline(std::cin, input);
+		if (input.empty())
 			std::cout	<< "Oye, tengo que saber cómo llamarte" << std::endl;
-	}while (first.empty());
+	}while (input.empty());
 
 	do {
 		std::cout	<< "Y tu Appelido?" << std::endl;
-		std::getline(std::cin, last);
-		if (last.empty())
+		std::getline(std::cin, input);
+		if (input.empty())
 			std::cout	<< "esa casta siempre presente,venga! " << std::endl;
-	}while (last.empty());
+	}while (input.empty());
 	do {
 		std::cout	<< "Por qué Mote te conocen?" << std::endl;
-		std::getline(std::cin, nick);
-		if (!nick.empty())
+		std::getline(std::cin, input);
+		if (input.empty())
 			std::cout	<< "el mote es tu marca de identidad, dime!" << std::endl;
-	}while (nick.empty());
+	}while (input.empty());
 	do {
 		std::cout	<< "dime tu telefono" << std::endl;
-		std::getline(std::cin, phone);
-		if (phone.empty())
+		std::getline(std::cin, input);
+		if (input.empty())
 			std::cout	<< "venga, ahora un telefono válido" << std::endl;
-	}while (phone.empty());
+	}while (input.empty());
 	do {
 		std::cout << "Shhh!Cuentame un secreto ozzcuro" << std::endl;
-		std::getline(std::cin, secret);
-		if (secret.empty())
+		std::getline(std::cin, input);
+		if (input.empty())
 		std::cout	<< "Venga soy una tumba!ese chisme aqui!" << std::endl;
-	}while (secret.empty());
+	}while (input.empty());
 
-	_contacts[i].setFirstName(first);
-	_contacts[i].setLastName(last);
-	_contacts[i].setNickName(nick);
-	_contacts[i].setPhoneNumber(phone);
-	_contacts[i].setDarkestSecret(secret);
+	_contacts[_index].setFirstName(input);
+	_contacts[_index].setLastName(input);
+	_contacts[_index].setNickName(input);
+	_contacts[_index].setPhoneNumber(input);
+	_contacts[_index].setDarkestSecret(input);
+	_index++;
+	if (_index == 8)
+		_index = 0;
+	if ( _totalContacts < 8)
+		_totalContacts++;
 }
+
+void	PhoneBook::searchContact()
+{
+	std::string	input;
+	
+	printTable();
+	std::cout	<< "Elige un contacto para más detalles" << std::endl;
+	std::getline(std::cin, input);
+	int	num = input[0] - '0';
+	if (input.empty() || (input.length() != 1)
+	|| !(input[0] >= '0' && input[0] <= '7') || num >= _totalContacts)
+		std::cout	<< "Perlita...uno válido a poder ser..." << std::endl;
+	else
+		printDetails(num);
+}
+
+std::cout	<< "fn: "
+			<< _firstName
+			<< std::endl;
+
+std::cout	<< "ln: "
+			<< _lastName
+			<< std::endl;
+
+
