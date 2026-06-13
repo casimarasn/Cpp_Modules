@@ -11,10 +11,7 @@ Contact::Contact()
 }
 
 Contact::~Contact()
-{
-	std::cout	<< "Everything Deleted"
-				<< std::endl;
-}
+{}
 
 
 void	Contact::setFirstName(const std::string& str)
