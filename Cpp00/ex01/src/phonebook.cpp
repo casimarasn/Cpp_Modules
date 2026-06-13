@@ -116,21 +116,40 @@ void	PhoneBook::addContact()
 void	PhoneBook::searchContact()
 {
 	std::string	input;
-	
-	printTable();
-	std::cout	<< "Elige un contacto para más detalles" << std::endl;
-	std::getline(std::cin, input);
-	if (input.empty() || (input.length() != 1)
-	|| !(input[0] >= '0' && input[0] <= '7'))
-	std::cout	<< "Perlita...uno válido a poder ser..." << std::endl;
-	else
+	bool	valid = false;
+
+	if (_totalContacts == 0) // <-- Esto evita problemas si hay 0 contactos
 	{
-		int	num = input[0] - '0';
-		if (num >= _totalContacts)
-			std::cout << "No existe todavía, dale tiempo" << std::endl;
-		else
-			printDetails(num);
+		std::cout	<< "No hay contactos guardados todavía. ¡Añade uno!"
+					<< std::endl;
+		return;
 	}
+	printTable();
+	do {
+		std::cout	<< "Elige un contacto para más detalles" << std::endl;
+		std::getline(std::cin, input);
+		if (std::cin.eof())
+			return;
+		if (input.empty())
+		{
+			std::cout << "¿Me estás vacilando?"
+						<< std::endl
+						<< "> ";
+		}
+		else if ((input.length() != 1) || !(input[0] >= '0' && input[0] <= '7'))
+			std::cout	<< "Perlita...uno válido a poder ser..." << std::endl;
+		else
+		{
+			int	num = input[0] - '0';
+			if (num >= _totalContacts)
+				std::cout << "No existe todavía, dale tiempo" << std::endl;
+			else
+			{
+				printDetails(num);
+				valid = true;
+			}
+		}
+	} while (!valid);
 }
 
 
