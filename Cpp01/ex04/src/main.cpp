@@ -4,7 +4,7 @@ int	main (int ac, char **av)
 {
 	if (ac != 4)
 	{
-		std::cout	<< "acuestate y pon los argumentos en condiciones"
+		std::cout	<< "Wrong number of arguments"
 					<< std::endl;
 		return (1);
 	}

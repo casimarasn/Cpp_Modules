@@ -1,4 +1,4 @@
-# include "file.hpp"
+# include "File.hpp"
 
 File::File(std::string fileName, std::string s1, std::string s2) : 
 _fileName(fileName), _s1(s1), _s2(s2){}
