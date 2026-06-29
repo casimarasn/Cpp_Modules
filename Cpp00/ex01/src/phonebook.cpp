@@ -46,65 +46,96 @@ void	PhoneBook::printTable()const
 
 void	PhoneBook::printDetails(int index)const
 {
-	std::cout	<< "Nombre: "
+	std::cout	<< "Name: "
 				<< _contacts[index].getFirstName()
 				<< std::endl;
 
-	std::cout	<< "Apellido: "
+	std::cout	<< "Surname: "
 				<< _contacts[index].getLastName()
 				<< std::endl;
 
-	std::cout	<< "Mote: : "
+	std::cout	<< "Nickname: : "
 				<< _contacts[index].getNickName()
 				<< std::endl;
 
-	std::cout	<< "Teléfono: "
+	std::cout	<< "Phone: "
 				<< _contacts[index].getPhoneNumber()
 				<< std::endl;
-	std::cout	<< "Oscuro Secreto: "
+	std::cout	<< "Dark Secret: "
 				<< _contacts[index].getDarkestSecret()
 				<< std::endl;
 }
 
+bool	PhoneBook::isInputEof()
+{
+	if (std::cin.eof())
+	{
+		std::cout << std::endl;
+		return (true);
+	}
+	return (false);
+	
+}
+
+bool PhoneBook::isAscii(std::string input)
+{
+	for (size_t i = 0; i < input.length(); i++)
+	{
+		if (static_cast<unsigned char>(input[i]) > 127 || static_cast<unsigned char>(input[i]) == '\t')
+			return (false);
+	}
+	return (true);
+}
 
 void	PhoneBook::addContact()
 {
 	std::string	input;
 
 	do {
-		std::cout	<< "Cuál es tu Nombre?" << std::endl;
+		std::cout	<< "what is your Name?" << std::endl;
+		
 		std::getline(std::cin, input);
-		if (input.empty())
-			std::cout	<< "Oye, tengo que saber cómo llamarte" << std::endl;
-	}while (input.empty());
+		if (isInputEof())
+			return ;
+		if (input.empty() || !isAscii(input))
+			std::cout	<< "Hey, I've got to know how I can call you" << std::endl;
+	}while (input.empty() || !isAscii(input));
 	_contacts[_index].setFirstName(input);
 	do {
-		std::cout	<< "Y tu Appelido?" << std::endl;
+		std::cout	<< "And your Surname?" << std::endl;
 		std::getline(std::cin, input);
-		if (input.empty())
-			std::cout	<< "esa casta siempre presente,venga! " << std::endl;
-	}while (input.empty());
+		if (isInputEof())
+			return ;
+		if (input.empty() || !isAscii(input))
+			std::cout	<< "The family name always present,come on! " << std::endl;
+	}while (input.empty() || !isAscii(input));
 	_contacts[_index].setLastName(input);
 	do {
-		std::cout	<< "Por qué Mote te conocen?" << std::endl;
+		std::cout	<< "What nickname do people know you by?" << std::endl;
 		std::getline(std::cin, input);
-		if (input.empty())
-		std::cout	<< "el mote es tu marca de identidad, dime!" << std::endl;
-	}while (input.empty());
+		if (isInputEof())
+			return ;
+		if (input.empty() || !isAscii(input))
+		std::cout	<< "Your nickname is your mark of identity, tell me!" << std::endl;
+	}while (input.empty() || !isAscii(input));
 	_contacts[_index].setNickName(input);
 	do {
-		std::cout	<< "dime tu telefono" << std::endl;
+		std::cout	<< "Tell me your phone" << std::endl;
 		std::getline(std::cin, input);
-		if (input.empty())
-			std::cout	<< "venga, ahora un telefono válido" << std::endl;
-	}while (input.empty());
+		if (isInputEof())
+			return ;
+		if (input.empty() || !isAscii(input))
+			std::cout	<< "come on, now a valid number" << std::endl;
+	}while (input.empty() || !isAscii(input));
 	_contacts[_index].setPhoneNumber(input);
 	do {
-		std::cout << "Shhh!Cuentame un secreto ozzcuro" << std::endl;
+		std::cout << "Shhh!Tell me a dark secret" << std::endl;
 		std::getline(std::cin, input);
-		if (input.empty())
-		std::cout	<< "Venga soy una tumba!ese chisme aqui!" << std::endl;
-	}while (input.empty());
+		if (isInputEof())
+			return ;
+		if (input.empty() || !isAscii(input))
+		std::cout	<< "come on! I'm a tomb!that secret here!" << std::endl;
+	}while (input.empty() || !isAscii(input));
 	_contacts[_index].setDarkestSecret(input);
 	_index++;
 	if (_index == 8)
@@ -118,31 +149,31 @@ void	PhoneBook::searchContact()
 	std::string	input;
 	bool	valid = false;
 
-	if (_totalContacts == 0) // <-- Esto evita problemas si hay 0 contactos
+	if (_totalContacts == 0)
 	{
-		std::cout	<< "No hay contactos guardados todavía. ¡Añade uno!"
+		std::cout	<< "There is no contacts still saved. ¡Add a new one!"
 					<< std::endl;
 		return;
 	}
 	printTable();
 	do {
-		std::cout	<< "Elige un contacto para más detalles" << std::endl;
+		std::cout	<< "Choose a contact for more details" << std::endl;
 		std::getline(std::cin, input);
 		if (std::cin.eof())
 			return;
 		if (input.empty())
 		{
-			std::cout << "¿Me estás vacilando?"
+			std::cout << "¿Are you kidding Me?"
 						<< std::endl
 						<< "> ";
 		}
 		else if ((input.length() != 1) || !(input[0] >= '0' && input[0] <= '7'))
-			std::cout	<< "Perlita...uno válido a poder ser..." << std::endl;
+			std::cout	<< "Sweetie...a valid one, if possible..." << std::endl;
 		else
 		{
 			int	num = input[0] - '0';
 			if (num >= _totalContacts)
-				std::cout << "No existe todavía, dale tiempo" << std::endl;
+				std::cout << "It doesn't exist yet, give it time" << std::endl;
 			else
 			{
 				printDetails(num);

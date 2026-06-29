@@ -9,15 +9,16 @@ class	PhoneBook
 		Contact	_contacts[8];
 		int	_index;
 		int	_totalContacts;
-
 		
-	public:
+		public:
 		PhoneBook();
 		~PhoneBook();
+		bool	isAscii(std::string input);
 		void	searchContact(void);
 		void	addContact(void);
 		void	printTable()const;
 		void	printDetails(int index)const;
+		bool	isInputEof();
 };
 
 #endif
