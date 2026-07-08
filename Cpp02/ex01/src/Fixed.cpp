@@ -56,10 +56,10 @@ void Fixed::setRawBits( int const raw)
 
 float Fixed::toFloat(void)const
 {
-
+	return((float)_fixedValue/256.0f);
 }
 
 int Fixed::toInt(void)const
 {
-
+	return(_fixedValue >> _fractionalBits);
 }

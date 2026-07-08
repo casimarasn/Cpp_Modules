@@ -23,5 +23,6 @@ class	Fixed
 		int toInt(void)const;
 };
 
+std::ostream	
 
 #endif
