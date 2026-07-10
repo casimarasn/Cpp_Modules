@@ -20,7 +20,7 @@ Fixed::Fixed(const Fixed &original):_fixedValue(original.getRawBits())
 				<< std::endl;
 }
 
-Fixed::Fixed(const int integer): _fixedValue(integer << _fractionalBits)????????
+Fixed::Fixed(const int integer) : _fixedValue(integer << _fractionalBits)
 {
 	std::cout	<< "Int Constructor called"
 				<< std::endl;
@@ -62,4 +62,12 @@ float Fixed::toFloat(void)const
 int Fixed::toInt(void)const
 {
 	return(_fixedValue >> _fractionalBits);
+}
+
+std::ostream	&operator<<(std::ostream& str, const Fixed &other)
+{
+	str << other.
+	std::cout	<< str
+				<< std::endl;
+
 }
