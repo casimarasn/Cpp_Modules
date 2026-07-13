@@ -59,7 +59,7 @@ Fixed&	Fixed::operator=(const Fixed &other)
 	std::cout	<< "Copy assigment operator called"
 				<< std::endl;
 	if (&other != this)
-		_fixedValue = other.getRawBits();
+		_fixedValue = other._fixedValue;
 	return(*this);
 }
 
