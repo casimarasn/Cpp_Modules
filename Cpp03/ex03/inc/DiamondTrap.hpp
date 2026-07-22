@@ -3,17 +3,19 @@
 
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
-/* virtual*/
-class	DiamondTrap: public ScavTrap, public FragTrap
+class	DiamondTrap:
+			virtual public ScavTrap,
+			virtual public FragTrap
 {
 	private:
-
+		std::string _name;
 	public:
 	DiamondTrap();
 	~DiamondTrap();
 	DiamondTrap(std::string name);
 	DiamondTrap (const DiamondTrap &original);
-	DiamondTrap 
-
+	DiamondTrap &operator=(const DiamondTrap &original);
+	void	WhoAmI();
+	void	attack(const std::string &target);
 };
 #endif

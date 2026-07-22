@@ -1,5 +1,4 @@
-#include "ScavTrap.hpp"
-#include "FragTrap.hpp"
+# include "DiamondTrap.hpp"
 
 int	main(void)
 {
@@ -22,5 +21,10 @@ int	main(void)
 		c.highFivesGuys();
 	}
 
+	{
+		DiamondTrap	d("Bili");
+		d.attack("Mili");
+		d.WhoAmI();
+	}
 	return (0);
 }
