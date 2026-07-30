@@ -9,10 +9,13 @@ int	main()
 		Animal *b = new Dog();
 		Animal *c = new Cat();
 
-
 		a->makeSound();		// generic animal sound
 		b->makeSound();		// guau
 		c->makeSound();		// ña ña ña
+
+		delete a;
+		delete b;
+		delete c;
 	}
 
 	{
@@ -21,6 +24,11 @@ int	main()
 
 		d->makeSound();
 		e->makeSound();
+
+		delete d;
+		delete e;
 	}
+
+
 	return (0);
 }
