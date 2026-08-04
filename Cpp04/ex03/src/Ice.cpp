@@ -2,20 +2,20 @@
 
 Ice::Ice(): AMateria("ice")
 {
-	std::cout	<< "(ICE)Default Constructor called"
-				<< std::endl;
+	// std::cout	<< "(ICE)Default Constructor called"
+				// << std::endl;
 }
 
 Ice::Ice(Ice const &other): AMateria(other)
 {
-	std::cout	<< "(ICE)Copy Constructor called"
-				<< std::endl;
+	// std::cout	<< "(ICE)Copy Constructor called"
+				// << std::endl;
 }
 
 Ice::~Ice()
 {
-	std::cout	<< "(ICE)Destructor called"
-				<< std::endl;
+	// std::cout	<< "(ICE)Destructor called"
+				// << std::endl;
 }
 
 Ice	&Ice::operator=(Ice const &other)
@@ -32,7 +32,7 @@ Ice*	Ice::clone()const
 
 void	Ice::use(ICharacter &target)
 {
-	std::cout	<< "* shoots an ice bolt at"
+	std::cout	<< "* shoots an ice bolt at "
 				<< target.getName()
 				<< std::endl;
 }

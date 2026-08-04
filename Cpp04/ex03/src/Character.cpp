@@ -2,14 +2,14 @@
 
 Character::Character(): _name(""), _slots()
 {
-	std::cout	<< "(CHAR)Default Constructor called"
-				<< std::endl;
+	// std::cout	<< "(CHAR)Default Constructor called"
+				// << std::endl;
 }
 
 Character::Character(std::string name): _name(name), _slots()
 {
-	std::cout	<< "(CHAR)Constructor called"
-				<< std::endl;
+	// std::cout	<< "(CHAR)Constructor called"
+				// << std::endl;
 }
 
 Character::Character(Character const &other): _name(other._name)
@@ -18,9 +18,9 @@ Character::Character(Character const &other): _name(other._name)
 		_slots[i] = NULL;
 	for(int i = 0; i < 4; i++)
 		if (other._slots[i])
-			_slots[i] = other._slots[i];
-	std::cout	<< "(CHAR)Copy Constructor called"
-				<< std::endl;
+			_slots[i] = other._slots[i]->clone();
+	// std::cout	<< "(CHAR)Copy Constructor called"
+				// << std::endl;
 }
 
 Character &Character::operator=(Character const &other)
@@ -29,15 +29,18 @@ Character &Character::operator=(Character const &other)
 	{
 		_name = other._name;
 		for (int i = 0; i < 4; i++)
-			_slots[i] = other._slots[i];
+			_slots[i] = other._slots[i]->clone();
 	}
 	return(*this);
 }
 
 Character::~Character()
 {
-	std::cout	<< "(CHAR)Destructor called"
-				<< std::endl;
+	for (int i = 0; i < 4; i++)
+		if (_slots[i])
+			delete _slots[i];
+	// std::cout	<< "(CHAR)Destructor called"
+				// << std::endl;
 }
 
 std::string const &Character::getName() const

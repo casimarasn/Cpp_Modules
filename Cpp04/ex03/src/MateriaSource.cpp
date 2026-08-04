@@ -4,8 +4,8 @@ MateriaSource::MateriaSource(): _slots()
 {
 	for(int i = 0; i < 4; i++)
 		_slots[i] = NULL;
-	std::cout	<< "(MAT)Default Constructor called"
-				<< std::endl;
+	// std::cout	<< "(MAT)Default Constructor called"
+				// << std::endl;
 }
 
 MateriaSource::MateriaSource(MateriaSource const &other)
@@ -13,8 +13,8 @@ MateriaSource::MateriaSource(MateriaSource const &other)
 	for(int i = 0; i < 4; i++)
 		_slots[i] = other._slots[i];
 	*this = other;
-	std::cout	<< "(MAT)Copy Constructor called"
-				<< std::endl;
+	// std::cout	<< "(MAT)Copy Constructor called"
+				// << std::endl;
 }
 
 MateriaSource::~MateriaSource()
@@ -22,8 +22,8 @@ MateriaSource::~MateriaSource()
 	for(int i = 0; i < 4; i++)
 		if(_slots[i])
 			delete this->_slots[i];
-	std::cout	<< "(MAT)Destructor called"
-				<< std::endl;
+	// std::cout	<< "(MAT)Destructor called"
+				// << std::endl;
 }
 
 MateriaSource	&MateriaSource::operator=(MateriaSource const &other)
@@ -38,8 +38,8 @@ MateriaSource	&MateriaSource::operator=(MateriaSource const &other)
 			else
 				_slots[i] = NULL;
 		}
-		return(*this);
 	}
+	return(*this);
 }
 
 void MateriaSource::learnMateria(AMateria *m)
