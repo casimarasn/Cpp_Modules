@@ -20,7 +20,7 @@ void	File::replace()
 	}
 	std::string	newFile = _fileName + ".replace";
 	std::ofstream	replacedFile(newFile.c_str());
-	if (!fName.is_open())
+	if (!replacedFile.is_open())
 	{
 		std::cout	<< "Error: could not open output file: "
 					<< newFile

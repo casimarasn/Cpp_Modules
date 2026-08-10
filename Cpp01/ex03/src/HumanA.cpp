@@ -4,7 +4,7 @@ HumanA:: HumanA(std::string name, Weapon& weapon) : _name(name), _weapon(weapon)
 
 HumanA:: ~HumanA ()
 {
-	std::cout	<< _name << "Eliminated"
+	std::cout	<< _name << " Eliminated"
 				<< std::endl;
 }
 

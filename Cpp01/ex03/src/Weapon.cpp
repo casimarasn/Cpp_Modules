@@ -4,7 +4,7 @@ Weapon::Weapon(std::string type) : _type(type) {}
 
 Weapon::~Weapon()
 {
-	std::cout	<< _type << "eliminated"
+	std::cout	<< _type << " eliminated"
 				<< std::endl ;
 }
 
