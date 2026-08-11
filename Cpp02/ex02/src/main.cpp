@@ -1,26 +1,20 @@
-# include "Point.hpp"
+# include "Fixed.hpp"
 
 int	main(void)
 {
-	Point const	a(0.0f, 0.0f);
-	Point const	b(10.0f, 0.0f);
-	Point const	c(5.0f, 10.0f);
+	Fixed		a;
+	Fixed const	b( Fixed(5.05f) * Fixed (2));
+	
 
-	//Caso 1:
-	Point const	into(5.0f, 3.0f);
+	std::cout << a << std::endl;
+	std::cout << ++a << std::endl;
+	std::cout << a << std::endl;
+	std::cout << a++ << std::endl;
+	std::cout << a << std::endl;
 
-	//Caso 2:
-	Point const	out(12.0f, 5.0f);
+	std::cout << b << std::endl;
 
-	//Caso 3:
-	Point const	inLine(5.0f, 0.0f);
-
-	std::cout	<< "Point in (expected: 1): "
-				<< bsp(a, b, c, into) << std::endl;
-	std::cout	<< "Point out (expected: 0): "
-				<< bsp(a, b, c, out) << std::endl;
-	std::cout	<< "Point in vector (expected: 0): "
-				<< bsp(a, b, c, inLine) << std::endl;
+	std::cout << Fixed::max (a, b) << std::endl;
 
 	return (0);
 }

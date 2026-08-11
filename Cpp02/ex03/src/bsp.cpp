@@ -1,6 +1,6 @@
 # include "Point.hpp"
 
-Fixed	sign(Point p, Point const l1, Point const l2)
+Fixed	sign(Point const &p, Point const &l1, Point const &l2)
 {
 	return ((p.getX() - l2.getX()) * (l1.getY() - l2.getY()) -
 		(l1.getX() - l2.getX()) * (p.getY() - l2.getY()));

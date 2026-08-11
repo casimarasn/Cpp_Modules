@@ -4,32 +4,32 @@ const int Fixed::_fractionalBits = 8;
 
 Fixed::Fixed() : _fixedValue(0)
 {
-	std::cout	<< "Default constructor called"
-				<< std::endl;
+	/*std::cout	<< "Default constructor called"
+				<< std::endl;*/
 }
 
 Fixed::~Fixed()
 {
-	std::cout	<< "Destructor called"
-				<< std::endl;
+	/*std::cout	<< "Destructor called"
+				<< std::endl;*/
 }
 
 Fixed::Fixed(const Fixed &original):_fixedValue(original._fixedValue)
 {
-	std::cout	<< "Copy Constructor called"
-				<< std::endl;
+	/*std::cout	<< "Copy Constructor called"
+				<< std::endl;*/
 }
 
 Fixed::Fixed(const int integer) : _fixedValue(integer << _fractionalBits)
 {
-	std::cout	<< "Int Constructor called"
-				<< std::endl;
+	/*std::cout	<< "Int Constructor called"
+				<< std::endl;*/
 }
 
 Fixed::Fixed(const float pointNumber): _fixedValue(roundf(pointNumber * 256.0f))
 {
-	std::cout	<< "Float Constructor called"
-				<< std::endl;
+	/*std::cout	<< "Float Constructor called"
+				<< std::endl;*/
 }
 
 int Fixed::getRawBits( void ) const
@@ -107,12 +107,12 @@ Fixed	&Fixed::operator++(void)
 	return (*this);
 }
 
-Fixed	&Fixed::operator++(int)
+Fixed	Fixed::operator++(int)
 {
-	Fixed *result = this;
+	Fixed result(*this);
 
 	this->_fixedValue++;
-	return (*result);
+	return (result);
 }
 
 Fixed	&Fixed::operator--(void)
@@ -121,12 +121,12 @@ Fixed	&Fixed::operator--(void)
 	return (*this);
 }
 
-Fixed	&Fixed::operator--(int)
+Fixed	Fixed::operator--(int)
 {
-	Fixed *result = this;
+	Fixed result(*this);
 
 	this->_fixedValue--;
-	return (*result);
+	return (result);
 }
 
 bool	Fixed::operator<(const Fixed &other)const
