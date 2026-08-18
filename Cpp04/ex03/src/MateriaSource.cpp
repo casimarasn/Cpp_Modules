@@ -11,7 +11,7 @@ MateriaSource::MateriaSource(): _slots()
 MateriaSource::MateriaSource(MateriaSource const &other)
 {
 	for(int i = 0; i < 4; i++)
-		_slots[i] = other._slots[i];
+		_slots[i] = NULL;
 	*this = other;
 	// std::cout	<< "(MAT)Copy Constructor called"
 				// << std::endl;
@@ -48,7 +48,7 @@ void MateriaSource::learnMateria(AMateria *m)
 	{
 		if(!_slots[i])
 		{
-			_slots[i] = m;
+			_slots[i] = m->clone();
 			return ;
 		}
 	}
