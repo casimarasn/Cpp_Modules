@@ -1,39 +1,37 @@
 NAME		= File
-CXX			= c++
-CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
-SRCS		= src/main.cpp src/File.cpp
-OBJS		= $(SRCS:.cpp=.o)
+CC			= c++
+CXXFLAGS	= -Wall -Wextra -Werror -std=c++98 -I$(INC_DIR)
 
-all: $(NAME)
+INC_DIR		= inc/
+SRC_DIR		= src/
+OBJ_DIR		= obj/
 
-$(NAME): $(OBJS)
-	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
+SRC_FILES	=	main.cpp \
+				File.cpp \
 
-%.o: %.cpp
-	$(CXX) $(CXXFLAGS) -I./inc -c $< -o $@
+SRC			= $(addprefix $(SRC_DIR), $(SRC_FILES))
+OBJ			= $(addprefix $(OBJ_DIR), $(SRC_FILES:.cpp=.o))
 
-clean:
-	rm -f $(OBJS)
+RM			= rm -rf
 
-fclean: clean
-	rmNAME		= File
-CXX			= c++
-CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
+all:		$(NAME)
 
-SRCS		= src/main.cpp src/File.cpp
-OBJS		= $(SRCS:.cpp=.o)
+$(NAME):	$(OBJ_DIR) $(OBJ)
+			$(CC) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
-all: $(NAME)
+$(OBJ_DIR):
+			mkdir -p $(OBJ_DIR)
 
-$(NAME): $(OBJS)
-	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
-
-%.o: %.cpp
-	$(CXX) $(CXXFLAGS) -I./inc -c $< -o $@
+$(OBJ_DIR)%.o:	$(SRC_DIR)%.cpp
+			$(CC) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJS)
+			$(RM) $(OBJ_DIR)
 
-fclean: clean
-	rm
+fclean:		clean
+			$(RM) $(NAME)
+
+re:			fclean all
+
+.PHONY:		all clean fclean re

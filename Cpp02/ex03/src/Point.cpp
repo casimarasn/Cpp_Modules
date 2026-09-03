@@ -2,26 +2,26 @@
 
 Point::Point() : _x(0), _y(0)
 {
-	std::cout	<< "Default constructor called"
-				<< std::endl;
+	/*std::cout	<< "Default constructor called"
+				<< std::endl;*/
 }
 
 Point::~Point()
 {
-	std::cout	<< "Destructor called"
-				<< std::endl;
+	/*std::cout	<< "Destructor called"
+				<< std::endl;*/
 }
 
 Point::Point(Point const &other): _x(other._x), _y(other._y)
 {
-	std::cout	<< "Copy constructor called"
-				<< std::endl;
+	/*std::cout	<< "Copy constructor called"
+				<< std::endl;*/
 }
 
 Point::Point(const float x, const float y): _x(x), _y(y)
 {
-	std::cout	<< "Constructor called"
-				<< std::endl;
+	/*std::cout	<< "Constructor called"
+				<< std::endl;*/
 }
 
 Fixed	Point::getX()const

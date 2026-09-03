@@ -12,10 +12,9 @@ class Zombie
 	private:
 		std::string	_name;
 
-
 	public:
 	
-		Zombie(void);
+		Zombie();
 		Zombie(std::string name);
 		~Zombie();
 

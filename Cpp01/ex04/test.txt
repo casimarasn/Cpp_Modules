@@ -1,0 +1,18 @@
+test.txt = me he encontradpo cpn .... (67)hola que tal
+
+s1: hola
+s2: boquita
+
+std::string	line = hola que tal
+
+pos = line[0]
+
+line (elimino ->  que tal) ---> line.erase();
+line (incorporo --> [boquita] que tal) --> line.insert();
+
+ACTUALIZAMOS POS:
+
+1.-	line[pos = 0] = [hola] que tal;
+2.- line[pos + s2.lengh() = boquita];
+3.- line = "b.o.q.u.i.t.a" que tal
+				67 + 7 ....que tal

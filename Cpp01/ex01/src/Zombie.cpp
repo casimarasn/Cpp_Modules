@@ -1,6 +1,8 @@
 # include "../includes/Zombie.hpp"
 
-Zombie::Zombie(){}
+Zombie::Zombie() {}
+
+Zombie::Zombie(std::string name): _name(name){}
 
 Zombie::~Zombie()
 {
@@ -16,6 +18,6 @@ void	Zombie::announce()
 
 void	Zombie::setName(std::string name)
 {
-	name = _name;
+	_name = name;
 }
 

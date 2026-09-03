@@ -29,7 +29,14 @@ Character &Character::operator=(Character const &other)
 	{
 		_name = other._name;
 		for (int i = 0; i < 4; i++)
+		{
+			if (_slots[i])
+			delete _slots[i];
+			if (other._slots[i])
 			_slots[i] = other._slots[i]->clone();
+			else 
+				_slots[i] = NULL;
+		}
 	}
 	return(*this);
 }

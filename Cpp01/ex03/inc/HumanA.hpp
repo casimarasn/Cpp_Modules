@@ -16,3 +16,8 @@ class	HumanA
 };
 
 #endif
+
+/* la diferencia entre Weapon& y Weapon* es que con * puede o no llevar arma, es decir, 
+	el valor al inicializar puede ser NULL, sin embargo el Weapon& tiene que tener un valor 
+	desde el principio, es decir, no ser NULL.
+*/
