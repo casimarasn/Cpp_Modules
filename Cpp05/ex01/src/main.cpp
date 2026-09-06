@@ -1,59 +1,99 @@
-#include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int	main()
 {
-	Bureaucrat	a("Test 1", 5);
-	Bureaucrat	b(a);
-	Bureaucrat	c;
-	
-	c = b;
+	// 1. Form válido + impresión
+	Form	a("test1", 19, 10);
+	std::cout << a << std::endl;
 
-	std::cout	<< a << std::endl;
-	
+	// 2. toSign demasiado alto (>150)
 	try
 	{
-		Bureaucrat	d("Test 2", 6798);
+		Form	b("test2", 190, 10);
 	}
-	catch(const std::exception& e)
-	{
-		std::cerr	<< e.what()
-					<< std::endl;
-	}
-	try
-	{
-		Bureaucrat	e("Test 3", 1);
-	}
-	catch(const std::exception& e)
+	catch (const std::exception &e)
 	{
 		std::cerr << e.what() << std::endl;
 	}
+
+	// 3. toSign demasiado bajo (<1)
 	try
 	{
-		Bureaucrat	f("Test 4", -89);
+		Form	c("test3", -5, 10);
 	}
-	catch(const std::exception& e)
+	catch (const std::exception &e)
 	{
-		std::cerr	<< e.what()
-					<< std::endl;
+		std::cerr << e.what() << std::endl;
 	}
+
+	// 4. toExec demasiado alto (>150)
 	try
 	{
-		Bureaucrat	g("Test 5", 150);
-		g.decrementGrade();
+		Form	d("test4", 19, 200);
 	}
-	catch(const std::exception& e)
+	catch (const std::exception &e)
 	{
-		std::cerr	<< e.what()
-					<< std::endl;
+		std::cerr << e.what() << std::endl;
 	}
+
+	// 5. toExec demasiado bajo (<1)
 	try
 	{
-		Bureaucrat	h("Test 5", 1);
-		h.incrementGrade();
+		Form	e("test5", 19, -3);
 	}
-	catch(const std::exception& e)
+	catch (const std::exception &e)
 	{
-		std::cerr	<< e.what()
-					<< std::endl;
+		std::cerr << e.what() << std::endl;
 	}
+
+	// 6. Bureaucrat con grado suficiente firma correctamente
+	try
+	{
+		Bureaucrat	goodBureaucrat("Alice", 5);
+		a.beSigned(goodBureaucrat);
+		std::cout << a << std::endl;
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+
+	// 7. Bureaucrat con grado insuficiente falla al firmar
+	try
+	{
+		Form		f("test6", 19, 10);
+		Bureaucrat	badBureaucrat("Bob", 50);
+		f.beSigned(badBureaucrat);
+		std::cout << f << std::endl;
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+
+	// 8. Bureaucrat con grado suficiente usa signForm() con éxito
+	try
+	{
+		Form		formOk("formOk", 50, 30);
+		Bureaucrat	goodSigner("Charlie", 10);
+		goodSigner.signForm(formOk);
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+
+	// 9. Bureaucrat con grado insuficiente usa signForm() y falla
+	try
+	{
+		Form		formFail("formFail", 50, 30);
+		Bureaucrat	badSigner("Dave", 100);
+		badSigner.signForm(formFail);
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+
+	return (0);
 }

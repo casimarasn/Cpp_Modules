@@ -5,11 +5,13 @@
 # include <string>
 # include <exception>
 
+
+class Form;
 class	Bureaucrat
 {
 	private:
-		std::string	_name;
-		int			_grade;
+		const std::string	_name;
+		int					_grade;
 
 	public:
 		Bureaucrat();
@@ -35,7 +37,9 @@ class	Bureaucrat
 				virtual const char	*what() const throw();
 		};	
 
-} ;
+		void	signForm(Form &form);
+
+};
 
 std::ostream &operator<<(std::ostream &o, const Bureaucrat &other);
 

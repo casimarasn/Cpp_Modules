@@ -27,7 +27,6 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
 {
 	if (this != &other)
 	{
-		_name = other._name;
 		_grade = other._grade;
 	}
 	return (*this);
@@ -70,14 +69,32 @@ std::ostream &operator<<(std::ostream &o, const Bureaucrat &other)
 		<< other.getGrade()
 		<< "."
 		<< std::endl;
+	return (o);
 }
 
 const char	*Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return ("Error: the error is too high: it must be between 1 and 150\n");
+	return ("Error: the grade is too high: it must be between 1 and 150\n");
 }
 const char	*Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return ("Error: the error is too low: it must be between 1 and 150\n");
+	return ("Error: the grade is too low: it must be between 1 and 150\n");
 }
 
+void	Bureaucrat::signForm(Form &form)
+{
+	try
+	{
+		form.beSigned(*this);
+		std::cout	<< this->getName() << "signed "
+					<< form.getName()
+					<< std::endl;
+	}
+	catch (const std::exception &e)
+	{
+		std::cout	<< this->getName() << "couldn't sign "
+					<< form.getName()
+					<< "because " << e.what()
+					<< std::endl;
+	}
+}

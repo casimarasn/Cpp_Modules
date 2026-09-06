@@ -1,7 +1,9 @@
 #ifndef FORM_HPP
 # define FORM_HPP
 
-# include "Bureaucrat.hpp"
+# include <iostream>
+# include <string>
+# include <exception>
 
 class Bureaucrat;
 
