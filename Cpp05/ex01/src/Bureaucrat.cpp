@@ -1,4 +1,6 @@
 # include "Bureaucrat.hpp"
+# include "Form.hpp"
+
 
 Bureaucrat::Bureaucrat(): _name(), _grade(1)
 {

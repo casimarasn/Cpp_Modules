@@ -1,4 +1,5 @@
-#include "Form.hpp"
+# include "Form.hpp"
+# include "Bureaucrat.hpp"
 
 Form::Form(): _name(), _signed(false), _signGrade(1), _execGrade(1)
 {
@@ -82,3 +83,17 @@ int					Form::validateGrade(int grade)
 	return (grade);
 }
 
+std::ostream	&operator<<(std::ostream &o, const Form &other)
+{
+	o	<< other.getName()
+		<< ", grade to sign: "
+		<< other.getSignGrade()
+		<< " and grade to execute: "
+		<< other.getExecGrade();
+
+	if (other.getSigned())
+		o	<< " IS signed.";
+	else
+		o	<< " IS NOT signed ";
+	return (o);
+}
