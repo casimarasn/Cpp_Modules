@@ -1,4 +1,4 @@
-NAME		= 28B
+NAME		= Intern
 
 CXX			= c++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
@@ -9,12 +9,13 @@ INC_DIR		= inc
 
 CXXFLAGS	+= -I$(INC_DIR)
 
-SRC_FILES	=	main.cpp \
+SRC_FILES	=	AForm.cpp \
 				Bureaucrat.cpp \
-				AForm.cpp \
-				ShrubberyCreationForm.cpp \
-				RobotomyRequestForm.cpp \
+				Intern.hpp \
+				main.cpp \
 				PresidentialPardonForm.cpp \
+				RobotomyRequestForm.cpp \
+				ShrubberyCreationForm.cpp \
 
 SRCS		=	$(addprefix $(SRC_DIR)/, $(SRC_FILES))
 OBJS		=	$(addprefix $(OBJ_DIR)/, $(SRC_FILES:.cpp=.o))
