@@ -1,7 +1,7 @@
 # include "Form.hpp"
 # include "Bureaucrat.hpp"
 
-Form::Form(): _name(), _signed(false), _signGrade(1), _execGrade(1)
+Form::Form(): _name(), _signGrade(1), _execGrade(1), _signed(false)
 {
 	std::cout	<< "Default Constructor called"
 				<< std::endl;
@@ -15,8 +15,8 @@ Form::Form(const std::string name, const int signGrade, int execGrade):
 				<< std::endl;
 }
 
-Form::Form(const Form &other):_name(other._name), _signed(other._signed),
-		_signGrade(other._signGrade), _execGrade(other._execGrade)
+Form::Form(const Form &other):_name(other._name), _signGrade(other._signGrade),
+	_execGrade(other._execGrade), _signed(other._signed)
 {
 	std::cout	<< "Copy Constructor called"
 				<< std::endl;

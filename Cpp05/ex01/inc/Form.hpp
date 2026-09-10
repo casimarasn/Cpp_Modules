@@ -12,9 +12,9 @@ class	Form
 	private:
 
 		const std::string	_name;
-		bool				_signed;
 		const int			_signGrade;
 		const int			_execGrade;
+		bool				_signed;
 
 	public:
 

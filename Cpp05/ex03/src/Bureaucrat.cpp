@@ -100,7 +100,7 @@ void	Bureaucrat::signForm(AForm &form)
 					<< std::endl;
 	}
 }
-void	Bureaucrat::executeForm(AForm const $form)const
+void	Bureaucrat::executeForm(AForm const &form)const
 {
 	try
 	{

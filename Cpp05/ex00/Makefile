@@ -5,7 +5,7 @@ CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 SRC_DIR		= src
 OBJ_DIR		= obj
-INC_DIR		= includes
+INC_DIR		= inc
 
 CXXFLAGS	+= -I$(INC_DIR)
 

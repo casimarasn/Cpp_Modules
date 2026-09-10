@@ -1,18 +1,18 @@
 # include "Animal.hpp"
 
-Animal::Animal():_family()
+Animal::Animal(): _type()
 {
 	std::cout	<< "Default Constructor called"
 				<< std::endl;
 }
 
-Animal::Animal(std::string type): _family(type)
+Animal::Animal(std::string type): _type(type)
 {
 	std::cout	<< "Constructor called"
 				<< std::endl;
 }
 
-Animal::Animal(Animal const &other): _family(other._family)
+Animal::Animal(Animal const &other): _type(other._type)
 {
 	std::cout	<< "Copy Constructor called"
 				<< std::endl;
@@ -21,7 +21,7 @@ Animal::Animal(Animal const &other): _family(other._family)
 Animal &Animal::operator=(Animal const &other)
 {
 	if (this != &other)
-		_family = other._family;
+		_type = other._type;
 	return (*this);
 }
 
@@ -31,7 +31,7 @@ Animal::~Animal()
 				<< std::endl;
 }
 
-std::string	Animal::getFamily()const
+std::string	Animal::getType()const
 {
-	return (_family);
+	return (_type);
 }

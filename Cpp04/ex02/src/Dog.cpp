@@ -1,4 +1,4 @@
-# include "Dog.hpp"
+# include "../inc/Dog.hpp"
 
 Dog::Dog(): Animal("Dog"), _brain(new Brain)
 {

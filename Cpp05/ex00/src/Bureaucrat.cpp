@@ -5,6 +5,7 @@ Bureaucrat::Bureaucrat(): _name(), _grade(1)
 	std::cout	<< "Default constructor called"
 				<< std::endl;
 }
+
 Bureaucrat::Bureaucrat(const Bureaucrat &other): _name(other._name), _grade(other._grade)
 {
 	std::cout	<< "Default constructor called"
@@ -52,6 +53,7 @@ void		Bureaucrat::incrementGrade()
 	else
 		throw Bureaucrat::GradeTooHighException();
 }
+
 void		Bureaucrat::decrementGrade()
 {
 	if (this->_grade < 150)
@@ -67,6 +69,7 @@ std::ostream &operator<<(std::ostream &o, const Bureaucrat &other)
 		<< other.getGrade()
 		<< "."
 		<< std::endl;
+		return (o);
 }
 
 const char	*Bureaucrat::GradeTooHighException::what() const throw()

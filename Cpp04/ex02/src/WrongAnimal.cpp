@@ -1,18 +1,18 @@
 # include "WrongAnimal.hpp"
 
-WrongAnimal::WrongAnimal():_family()
+WrongAnimal::WrongAnimal():_type()
 {
 	std::cout	<< "(WR)Default Constructor called"
 				<< std::endl;
 }
 
-WrongAnimal::WrongAnimal(std::string type): _family(type)
+WrongAnimal::WrongAnimal(std::string type): _type(type)
 {
 	std::cout	<< "(WR)Constructor called"
 				<< std::endl;
 }
 
-WrongAnimal::WrongAnimal(WrongAnimal const &other): _family(other._family)
+WrongAnimal::WrongAnimal(WrongAnimal const &other): _type(other._type)
 {
 	std::cout	<< "(WR)Copy Constructor called"
 				<< std::endl;
@@ -21,7 +21,7 @@ WrongAnimal::WrongAnimal(WrongAnimal const &other): _family(other._family)
 WrongAnimal &WrongAnimal::operator=(WrongAnimal const &other)
 {
 	if (this != &other)
-		_family = other._family;
+		_type = other._type;
 	return (*this);
 }
 
@@ -37,7 +37,7 @@ void	WrongAnimal::makeSound()const
 				<< std::endl;
 }
 
-std::string	WrongAnimal::getFamily()const
+std::string	WrongAnimal::getType()const
 {
-	return (_family);
+	return (_type);
 }

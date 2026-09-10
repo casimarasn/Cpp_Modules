@@ -11,7 +11,7 @@ CXXFLAGS	+= -I$(INC_DIR)
 
 SRC_FILES	=	AForm.cpp \
 				Bureaucrat.cpp \
-				Intern.hpp \
+				Intern.cpp \
 				main.cpp \
 				PresidentialPardonForm.cpp \
 				RobotomyRequestForm.cpp \

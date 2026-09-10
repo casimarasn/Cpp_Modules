@@ -6,7 +6,7 @@
 
 class	Cat: public Animal
 {
-	protected:
+	private:
 		Brain *_brain;
 	public:
 		Cat();

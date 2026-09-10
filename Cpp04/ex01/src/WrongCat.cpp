@@ -1,6 +1,5 @@
 # include "WrongCat.hpp"
 
-
 WrongCat::WrongCat(): WrongAnimal("WrongCat")
 {
 	std::cout	<< "(WrongCAT)Default Constructor called"

@@ -6,7 +6,7 @@ Cat::Cat(): Animal("Cat")
 				<< std::endl;
 }
 
-Cat::Cat(Cat const &other)
+Cat::Cat(Cat const &other): Animal(other)
 {
 	std::cout	<< "(CAT)Copy Constructor called"
 				<< std::endl;

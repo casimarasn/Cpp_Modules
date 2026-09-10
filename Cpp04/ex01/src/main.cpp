@@ -1,5 +1,5 @@
-# include "Dog.hpp"
-# include "Cat.hpp"
+# include "../inc/Dog.hpp"
+# include "../inc/Cat.hpp"
 # include "WrongCat.hpp"
 
 int	main()

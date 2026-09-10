@@ -7,7 +7,7 @@
 class	Animal
 {
 	protected:
-		std::string _family;
+		std::string _type;
 
 	public:
 		Animal();
@@ -16,7 +16,10 @@ class	Animal
 		Animal &operator=(Animal const &other);
 		virtual ~Animal();
 		virtual void	makeSound()const = 0;
-		std::string	getFamily()const;
+		std::string	getType()const;
 };
 
 #endif
+
+/*cuando una clase lleva uno o mas atributos igualados a 0 es abstracta
+por lo tanto no instanciable*/

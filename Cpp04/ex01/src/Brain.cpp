@@ -6,12 +6,6 @@ Brain::Brain(): _ideas()
 				<< std::endl;
 }
 
-Brain::~Brain()
-{
-	std::cout	<< "Destructor called"
-				<< std::endl;
-}
-
 Brain::Brain(Brain const &other)
 {
 	for (int i = 0; i < 100; i++)
@@ -28,6 +22,11 @@ Brain	&Brain::operator=(Brain const &other)
 	return (*this);
 }
 
+Brain::~Brain()
+{
+	std::cout	<< "Destructor called"
+				<< std::endl;
+}
 std::string Brain::getIdeas(int index)
 {
 	return(_ideas[index]);
