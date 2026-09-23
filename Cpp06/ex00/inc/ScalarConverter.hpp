@@ -11,6 +11,15 @@
 #include <cctype>
 #include <iomanip>
 
+enum e_type {
+	NONE,
+	CHAR,
+	INT,
+	FLOAT,
+	DOUBLE,
+	IMPOSSIBLE
+};
+
 class ScalarConverter
 {
 	private:
@@ -21,10 +30,10 @@ class ScalarConverter
 		~ScalarConverter();
 
 	public:
-		static void	convert(std::string& lit);
+		static void	convert(const std::string& lit);
 
 
-}
+};
 
 
 #endif
