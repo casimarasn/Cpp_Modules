@@ -215,17 +215,23 @@ inff / +inff	→ infinito positivo, versión float.
 
 /*FUNCIONES UTILES:
 
-strtod	→	devuelve double. Sirve también para detectar "nan"/"inf"
-			automáticamente si quisieras (aunque tú ya los gestionas aparte
-			por comparación exacta).
+strtod	→		devuelve double. Sirve también para detectar "nan"/"inf"
+				automáticamente si quisieras (aunque tú ya los gestionas aparte
+				por comparación exacta).
 
-strtof	→	igual pero devuelve float directamente (útil si quieres parsear
-			ya como float sin pasar por double y perder precisión de forma distinta).
+strtof	→		igual pero devuelve float directamente (útil si quieres parsear
+				ya como float sin pasar por double y perder precisión de forma distinta).
 
-strtol	→	para enteros. Firma: long strtol(const char *str, char **endptr, int base)
-			— el tercer parámetro es la base numérica (usarías 10 para decimal).
-			Devuelve long, no int, así que tendrás que comprobar tú mismo si el
-			valor cabe en rango de int.
+strtol	→		para enteros. Firma: long strtol(const char *str, char **endptr, int base)
+				— el tercer parámetro es la base numérica (usarías 10 para decimal).
+				Devuelve long, no int, así que tendrás que comprobar tú mismo si el
+				valor cabe en rango de int.
+static_cast →	cuendo existe una relacion logica o matematica conocida entre dos tipos
+				de datos. SI transforma datos subyacentes. cuando se utiliza el ompilador inyecta
+				instrucciones de CPU reales para traducir el patrón de bits de un formato a otro
+				garantizando valor semantico mantenido en la medida de lo posible.
+				en el ex static_cast destruye el patron de bits original, calcula como escribe
+				el numero en int y escribe patron de bits totalmente nuevo en la memoria.
 */
 
 /*ejemplos validos e invalidos de como debe funcionar el programa:
