@@ -61,17 +61,22 @@ int main(void)
 	}
 
 	//GENERATING RANDOM NUMBERS AND COMPARING 
-	for (int i = 0; i < MAX_VAL; i++)
-		numbers[i] = rand();
+	std::cout	<< "GENERATING RANDOM NUMBERS AND COMPARING\n";
 	for (int i = 0; i < MAX_VAL; i++)
 	{
-		std::cout	<< "GENERATING RANDOM NUMBERS AND COMPARING\n";
+		const int value = rand();
+		numbers[i] = value;
+		mirror[i] = value;
+	}
+	for (int i = 0; i < MAX_VAL; i++)
+	{
 		if (numbers[i] != mirror[i])
 		{
 			std::cout	<< "numbers and mirrors aren't the same" << std::endl;
 			break ;
 		}
 	}
+	std::cout << "¡Todo correcto! No hay diferencias." << std::endl;
 	delete [] mirror;
 	return 0;
 }
