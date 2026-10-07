@@ -8,7 +8,7 @@ AForm::AForm(): _name(), _target(), _signGrade(1), _execGrade(1),  _signed(false
 }
 
 AForm::AForm(const std::string name, const std::string target, const int signGrade, int execGrade): 
-		_name(name), _target(target), _signGrade(signGrade), _execGrade(execGrade)
+		_name(name), _target(target), _signGrade(validateGrade(signGrade)), _execGrade(validateGrade(execGrade))
 {
 	
 	std::cout	<< "Constructor called"
@@ -37,12 +37,12 @@ AForm::~AForm()
 				<< std::endl;
 }
 
-const std::string	AForm::getName() const
+const std::string	&AForm::getName() const
 {
 	return(_name);
 }
 
-const std::string	AForm::getTarget() const
+const std::string	&AForm::getTarget() const
 {
 	return (_target);
 }

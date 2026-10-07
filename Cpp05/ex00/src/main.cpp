@@ -9,6 +9,10 @@ int	main()
 	c = b;
 
 	std::cout	<< a << std::endl;
+	a.incrementGrade();
+	std::cout	<< a << std::endl;
+	c.decrementGrade();
+	std::cout	<< c << std::endl;
 	
 	try
 	{

@@ -30,7 +30,7 @@ class	Form
 		int					getExecGrade() const ;
 
 		void				beSigned(Bureaucrat const &bureaucrat);
-		int					validateGrade(int grade);
+		static int					validateGrade(int grade);
 
 		class GradeTooHighException : public std::exception
 		{
@@ -47,3 +47,12 @@ class	Form
 std::ostream &operator<<(std::ostream &o, const Form &other);
 
 #endif
+
+/*static se recomienda usar por dos razones:
+
+1. independencia del objeto: pertenecen a la clase en si, no a una instncia especifica.
+
+2. las constantes deben inicializarse obligatoriamente en la lista de iniciacion del 
+constructor Llamar a un método normal de la clase en ese instante puede ser arriesgado
+porque el objeto no está completamente construido. Un método static se ejecuta de forma
+segura sin depender del estado de un objeto incompleto.  */

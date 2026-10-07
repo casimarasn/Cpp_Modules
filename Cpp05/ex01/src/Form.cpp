@@ -8,9 +8,8 @@ Form::Form(): _name(), _signGrade(1), _execGrade(1), _signed(false)
 }
 
 Form::Form(const std::string name, const int signGrade, int execGrade):
-	_name(name), _signGrade(signGrade), _execGrade(execGrade)
+	_name(name), _signGrade(validateGrade(signGrade)), _execGrade(validateGrade(execGrade)), _signed(false)
 {
-	
 	std::cout	<< "Constructor called"
 				<< std::endl;
 }
@@ -25,9 +24,7 @@ Form::Form(const Form &other):_name(other._name), _signGrade(other._signGrade),
 Form &Form::operator=(const Form &other)
 {
 	if (this != &other)
-	{
 		_signed = other._signed;
-	}
 	return(*this);
 }
 

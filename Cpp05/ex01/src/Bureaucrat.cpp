@@ -39,12 +39,12 @@ Bureaucrat::~Bureaucrat()
 				<< std::endl;
 }
 
-std::string Bureaucrat::getName()const
+const std::string &Bureaucrat::getName()const
 {
 	return (_name);
 }
 
-int			Bureaucrat::getGrade()const
+const int			&Bureaucrat::getGrade()const
 {
 	return (_grade);
 }
@@ -88,15 +88,15 @@ void	Bureaucrat::signForm(Form &form)
 	try
 	{
 		form.beSigned(*this);
-		std::cout	<< this->getName() << "signed "
+		std::cout	<< this->getName() << " signed "
 					<< form.getName()
 					<< std::endl;
 	}
 	catch (const std::exception &e)
 	{
-		std::cout	<< this->getName() << "couldn't sign "
+		std::cout	<< this->getName() << " couldn't sign "
 					<< form.getName()
-					<< "because " << e.what()
+					<< " because " << e.what()
 					<< std::endl;
 	}
 }

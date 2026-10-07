@@ -25,14 +25,14 @@ class	AForm
 		AForm &operator=(const AForm &other);
 		~AForm();
 
-		const std::string	getName() const;
-		const std::string	getTarget()const;
+		const std::string	&getName() const;
+		const std::string	&getTarget()const;
 		bool				getSigned() const;
 		int					getSignGrade() const;
 		int					getExecGrade() const;
 
 		void				beSigned(Bureaucrat const &bureaucrat);
-		int					validateGrade(int grade);
+		static int					validateGrade(int grade);
 
 		class GradeTooHighException : public std::exception
 		{

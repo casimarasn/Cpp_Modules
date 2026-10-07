@@ -10,7 +10,7 @@ INC_DIR		= inc
 CXXFLAGS	+= -I$(INC_DIR)
 
 SRC_FILES	=	main.cpp \
-				Bureaucrat.cpp \
+				Bureaucrat.cpp
 
 
 SRCS		=	$(addprefix $(SRC_DIR)/, $(SRC_FILES))

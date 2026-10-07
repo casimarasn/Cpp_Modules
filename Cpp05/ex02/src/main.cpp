@@ -8,6 +8,7 @@
 int	main()
 {
 	{
+		std::srand(time(NULL));
 		std::cout << "=== SHRUBBERY CREATION FORM ===" << std::endl;
 		try
 		{
