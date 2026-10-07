@@ -33,6 +33,7 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
+	rm -f jardin_shrubbery
 
 re: fclean all
 
