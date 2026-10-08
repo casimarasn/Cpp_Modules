@@ -1,4 +1,5 @@
 #include <iostream>
+#include <exception>
 #include "Base.hpp"
 #include "A.hpp"
 #include "B.hpp"
@@ -39,4 +40,5 @@ void identify(Base &p)
 		std::cout << "C" << std::endl;
 		return;
 	} catch (std::exception& e) {}
+	std::cout << "Unknown type" << std::endl;
 }

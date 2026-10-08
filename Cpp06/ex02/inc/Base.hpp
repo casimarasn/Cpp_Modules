@@ -14,7 +14,6 @@ class	Base
 Base* generate(void);
 void	identify(Base *p);
 void	identify(Base &p);
-int		displayNumber(void);
 
 
 #endif

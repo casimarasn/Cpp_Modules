@@ -20,3 +20,12 @@ int main()
 	delete mistery; // Evitamos fugas de memoria
 	return (0);
 }
+
+/*
+El puntero usa la lógica de comprobación condicional
+(¿eres igual a cero?).
+
+La referencia usa la lógica de prueba y error
+(intentarlo, fallar, capturar la excepción para que el programa
+no aborte, y probar la siguiente opción).
+*/

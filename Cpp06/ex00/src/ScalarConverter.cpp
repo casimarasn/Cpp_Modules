@@ -43,10 +43,13 @@ void	ScalarConverter::convert(const std::string& lit)
 			/*saber si es int, char, float o double*/
 			if (std::isdigit(lit[i]))
 				continue ;
-			else if (i > 0 && (lit[i] == '+' || lit[i] == '-'))
+			else if (lit[i] == '+' || lit[i] == '-')
 			{
-				isInvalid = true;
-				break ;
+				if (i > 0)
+				{
+					isInvalid = true;
+					break ;
+				}
 			}
 			else if (lit[i] == '.')
 			{
@@ -102,8 +105,8 @@ void	ScalarConverter::convert(const std::string& lit)
 			
 			// Como un char casteado a float/double siempre da un número entero (ej. 'a' -> 97),
 			// std::cout omitirá los decimales por defecto. Podemos forzarlos así:
-			std::cout << "float: " << f << ".0f" << std::endl;
-			std::cout << "double: " << d << ".0" << std::endl;
+			std::cout << "float: " << std::fixed << std::setprecision(1) << f  << std::endl;
+			std::cout << "double: " << std::fixed << std::setprecision(1) << d << std::endl;
 			break ;
 		}
 		case INT:
@@ -226,12 +229,17 @@ strtol	→		para enteros. Firma: long strtol(const char *str, char **endptr, int
 				— el tercer parámetro es la base numérica (usarías 10 para decimal).
 				Devuelve long, no int, así que tendrás que comprobar tú mismo si el
 				valor cabe en rango de int.
+
 static_cast →	cuendo existe una relacion logica o matematica conocida entre dos tipos
-				de datos. SI transforma datos subyacentes. cuando se utiliza el ompilador inyecta
+				de datos. SI transforma datos subyacentes. cuando se utiliza el compilador inyecta
 				instrucciones de CPU reales para traducir el patrón de bits de un formato a otro
 				garantizando valor semantico mantenido en la medida de lo posible.
 				en el ex static_cast destruye el patron de bits original, calcula como escribe
 				el numero en int y escribe patron de bits totalmente nuevo en la memoria.
+
+std_fixed		imprime el numero en formato decimal normal (fijo), no uses notación cientifica.
+std::precision	dice cuantos decimales exactos quieres mostrar. 
+
 */
 
 /*ejemplos validos e invalidos de como debe funcionar el programa:
