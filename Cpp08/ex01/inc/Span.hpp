@@ -1,14 +1,14 @@
 #ifndef SPAN_HPP
 # define SPAN_HPP
 
-# include <iostream>
-# include <vector>
+
+# include <set>
 
 class	Span
 {
 	private:
 		unsigned int 		_N;
-		std::vector<int>	_numbers;
+		std::multiset<int>	_numbers;
 
 	public:
 						Span();
@@ -17,9 +17,9 @@ class	Span
 		Span			&operator=(const Span &other);
 
 						~Span();
-		void			addNumber(unsigned int num);
-		unsigned int	shortestSpan();
-		unsigned int	longestSpan();
+		void			addNumber(int num);
+		unsigned int	shortestSpan()const;
+		unsigned int	longestSpan()const;
 };
 
 
