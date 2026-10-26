@@ -26,6 +26,25 @@ void	Span::addNumber(int num)
 	_numbers.insert(num);
 }
 
+void	Span::print() const
+{
+	if (_numbers.empty())
+		std::cout << "(empty)" << std::endl;
+	else
+	{
+		int size = 0;
+		for (std::multiset<int>::const_iterator i = _numbers.begin(); i != _numbers.end(); ++i) {
+			if (size > 100) {
+				std::cout << "...";
+				break ;
+			}
+			std::cout << *i << " ";
+			size++;
+		}
+		std::cout << std::endl;
+	}
+}
+
 unsigned int	Span::shortestSpan()const
 {
 	if (_numbers.size()< 2)

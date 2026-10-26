@@ -2,7 +2,9 @@
 # define SPAN_HPP
 
 
+# include <iostream>
 # include <set>
+
 
 class	Span
 {
@@ -18,8 +20,19 @@ class	Span
 
 						~Span();
 		void			addNumber(int num);
+		void			print()const;
 		unsigned int	shortestSpan()const;
 		unsigned int	longestSpan()const;
+
+		template	< typename T>
+		void	addNumber(T begin, T end)
+		{
+			size_t range = std::distance(begin, end);
+			if (range + _numbers.size() > _N)
+				throw (std::runtime_error("error: out of size"));
+			_numbers.insert(begin, end);
+		}
+
 };
 
 
