@@ -2,6 +2,9 @@
 # include <iostream>
 # include <ctime>
 # include <cstdlib>
+# include <climits>
+# include <vector>
+# include <list>
 
 int	main(void)
 {
@@ -31,7 +34,7 @@ int	main(void)
 	vp.print();
 	try
 	{
-	std::cout << "shortest: " << vp.shortestSpan() << std::endl;
+		std::cout << "shortest: " << vp.shortestSpan() << std::endl;
 	}
 	catch (const std::exception &e)
 	{
@@ -114,16 +117,42 @@ int	main(void)
 	{
 			std::cout << "Error: " << e.what() << std::endl;
 	}
-
+	
+	std::cout << "Casos con rangos aleatorios" << std::endl;
 	Span msp(15000);
-	std::multiset<int>bigVector;
+	std::multiset<int>bigSet;
 	std::srand(std::time(NULL));
 	for (int i = 0; i < 12000; i++)
 	{
-		bigVector.insert(std::rand());
+		bigSet.insert(std::rand());
 	}
-	msp.addNumber(bigVector.begin(), bigVector.end());
+	msp.addNumber(bigSet.begin(), bigSet.end());
 	msp.print();
+	std::cout << "shortest: " << msp.shortestSpan() << std::endl;
+	std::cout << "longest: " << msp.longestSpan() << std::endl;
+
+	std::cout << "Caso con rango que no cabe" << std::endl;
+	Span small(5);
+	std::vector<int> tenNumbers;
+	for (int i = 0; i < 10; i++)
+		tenNumbers.push_back(i);
+	try
+	{
+		small.addNumber(tenNumbers.begin(), tenNumbers.end());
+	}
+	catch (const std::exception &e)
+	{
+		std::cout << "Error: " << e.what() << std::endl;
+	}
+	small.print();
+
+	std::cout << "Caso con extremos" << std::endl;
+	Span ext(2);
+	ext.addNumber(INT_MIN);
+	ext.addNumber(INT_MAX);
+	ext.print();
+	std::cout << "longest: " << ext.longestSpan() << std::endl;
+
 
 	return (0);
 }

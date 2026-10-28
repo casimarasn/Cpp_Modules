@@ -66,7 +66,7 @@ unsigned int	Span::longestSpan()const
 {
 	if (_numbers.size() < 2)
 		throw std::runtime_error("Not enough numbers to find a span");
-	return (*_numbers.rbegin() - *_numbers.begin());
+	return (static_cast<unsigned int>(*_numbers.rbegin()) - static_cast<unsigned int>(*_numbers.begin()));
 }
 
 
