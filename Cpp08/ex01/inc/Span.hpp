@@ -32,7 +32,7 @@ class	Span
 		{
 			size_t range = std::distance(begin, end);
 			if (range + _numbers.size() > _N)
-				throw (std::runtime_error("error: Not enough space for this range"));
+				throw (std::runtime_error("Not enough space for this range"));
 			_numbers.insert(begin, end);
 		}
 
