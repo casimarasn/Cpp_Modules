@@ -12,8 +12,6 @@ typename T::iterator easyfind(T& container, int toFind)
 	if (result == container.end())
 		throw std::runtime_error("Value not found in container");
 	return (result);
-
-
 }
 
 template	<typename T>
